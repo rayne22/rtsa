@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -117,7 +118,10 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/rtsa", rstaPost).Methods("POST")
-	log.Fatal(http.ListenAndServe(":8060", router))
+
+	port := os.Getenv("PORT")
+
+	log.Fatal(http.ListenAndServe(":" + port, router))
 }
 
 
