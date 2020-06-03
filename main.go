@@ -39,20 +39,27 @@ func homeLink(w http.ResponseWriter, r *http.Request) {
 var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *http.Request)  {
 
 	response.Header().Set("content-type", "application/json")
-	var messages []Params
+	//var messages []Params
 	var username  = "Douglas.Chilungu"
 	var passwd = "aplusgeneral@2019"
 	client := &http.Client{}
-	_ = json.NewDecoder(request.Body).Decode(&messages)
-	var ppl []interface{}
-	for _, p := range messages {
-		ppl = append(ppl, p)
-	}
+	//_ = json.NewDecoder(request.Body).Decode(&messages)
+	//var ppl []interface{}
+	//for _, p := range messages {
+	//	ppl = append(ppl, p)
+	//}
 
-	_ = json.NewEncoder(response).Encode(ppl)
+	reqBody, _ := ioutil.ReadAll(request.Body)
+	var article Params
+	_ = json.Unmarshal(reqBody, &article)
+	// update our global Articles array to include
+	// our new Article
+	parA = append(parA, article)
+
+	_ = json.NewEncoder(response).Encode(parA)
 
 
-	jsonReq, err := json.Marshal(ppl)
+	jsonReq, err := json.Marshal(parA)
 
 
 	url := "https://zampointzidb.eservices.gov.zm/ZIDB/ReceiveInsurancePolicies"
@@ -85,7 +92,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	log.Println(port)
-	log.Fatal(http.ListenAndServe(":8060" , router))
+	log.Fatal(http.ListenAndServe(":" + port, router))
 }
 
 
