@@ -40,7 +40,9 @@ var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *htt
 
 	response.Header().Set("content-type", "application/json")
 
-	enableCors(&response)
+	response.Header().Set("Access-Control-Allow-Origin", "*")
+	response.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	response.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
 
 	//var messages []Params
 	var username  = "Douglas.Chilungu"
@@ -84,9 +86,6 @@ var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *htt
 
 })
 
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
 
 
 
