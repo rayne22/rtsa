@@ -39,6 +39,9 @@ func homeLink(w http.ResponseWriter, r *http.Request) {
 var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *http.Request)  {
 
 	response.Header().Set("content-type", "application/json")
+
+	enableCors(&response)
+
 	//var messages []Params
 	var username  = "Douglas.Chilungu"
 	var passwd = "aplusgeneral@2019"
@@ -81,6 +84,9 @@ var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *htt
 
 })
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
 
 
 
