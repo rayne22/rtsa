@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"time"
+	"github.com/rs/cors"
 )
 
 type Params struct {
@@ -86,10 +87,30 @@ var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *htt
 
 })
 
+// CORSRouterDecorator applies CORS headers to a mux.Router
+type CORSRouterDecorator struct {
+	R *mux.Router
+}
 
+// ServeHTTP wraps the HTTP server enabling CORS headers.
+// For more info about CORS, visit https://www.w3.org/TR/cors/
+func (c *CORSRouterDecorator) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	if origin := req.Header.Get("Origin"); origin != "" {
+		rw.Header().Set("Access-Control-Allow-Origin", origin)
+		rw.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+		rw.Header().Set("Access-Control-Allow-Headers", "Accept, Accept-Language, Content-Type, YourOwnHeader")
+	}
+	// Stop here if its Preflighted OPTIONS request
+	if req.Method == "OPTIONS" {
+		return
+	}
+
+	c.R.ServeHTTP(rw, req)
+}
 
 
 func main() {
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/rtsa", rstaPost).Methods("Post")
@@ -97,7 +118,8 @@ func main() {
 	port := os.Getenv("PORT")
 
 	log.Println(port)
-	log.Fatal(http.ListenAndServe(":" + port, router))
+	handler := cors.Default().Handler(router)
+	log.Fatal(http.ListenAndServe(":" + port, handler))
 }
 
 
