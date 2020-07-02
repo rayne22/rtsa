@@ -48,6 +48,60 @@ var rstaPost = http.HandlerFunc(func (response http.ResponseWriter, request *htt
 	//var messages []Params
 	var username  = "Douglas.Chilungu"
 	var passwd = "aplusgeneral@2019"
+
+
+	client := &http.Client{}
+	//_ = json.NewDecoder(request.Body).Decode(&messages)
+	//var ppl []interface{}
+	//for _, p := range messages {
+	//	ppl = append(ppl, p)
+	//}
+
+	reqBody, _ := ioutil.ReadAll(request.Body)
+	var article Params
+	_ = json.Unmarshal(reqBody, &article)
+	// update our global Articles array to include
+	// our new Article
+	parA = append(parA, article)
+
+	_ = json.NewEncoder(response).Encode(parA)
+
+
+	jsonReq, err := json.Marshal(parA)
+
+
+	url := "https://zampointzidb.eservices.gov.zm/ZIDB/ReceiveInsurancePolicies"
+	req, _ := http.NewRequest("POST", url, bytes.NewBuffer(jsonReq))
+
+	log.Println(request.Body)
+
+	req.SetBasicAuth(username, passwd)
+	req.Header.Set("content-type", "application/json")
+
+	res, err := client.Do(req)
+	if err != nil{
+		log.Fatal(err)
+	}
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(string(body))
+
+})
+
+
+var rstaPostSavenda = http.HandlerFunc(func (response http.ResponseWriter, request *http.Request)  {
+
+	response.Header().Set("content-type", "application/json")
+
+	response.Header().Set("Access-Control-Allow-Origin", "*")
+	response.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	response.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+
+	//var messages []Params
+
+	var username  = "anthony.lukwesa"
+	var passwd = "savenda@2020"
 	client := &http.Client{}
 	//_ = json.NewDecoder(request.Body).Decode(&messages)
 	//var ppl []interface{}
@@ -114,12 +168,13 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/rtsa", rstaPost).Methods("Post")
+	router.HandleFunc("/rtsa-savenda", rstaPostSavenda).Methods("Post")
 
 	port := os.Getenv("PORT")
 
 	log.Println(port)
 	handler := cors.Default().Handler(router)
-	log.Fatal(http.ListenAndServe(":" + port, handler))
+	log.Fatal(http.ListenAndServe(":8090", handler))
 }
 
 
