@@ -174,7 +174,7 @@ func main() {
 
 	log.Println(port)
 	handler := cors.Default().Handler(router)
-	log.Fatal(http.ListenAndServe(":" + port, handler))
+	log.Fatal(http.ListenAndServe(":8090", handler))
 }
 
 
