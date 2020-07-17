@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d58fef1-907f-4095-9f6b-bd9401234b35" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/aplus/aplusController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goldenlotus/rtsaGoldenLotus.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/rtsaModel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/savenda/savendaController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +98,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
