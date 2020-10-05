@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d58fef1-907f-4095-9f6b-bd9401234b35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/rtsaModel.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/rtsaModel.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +48,6 @@
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="y" value="1" />
-    <option name="width" value="1292" />
-    <option name="height" value="725" />
-  </component>
   <component name="ProjectId" id="1eiaYBufcsExIBoEubH59wC24bN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -72,8 +67,20 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hobbiton\Documents\hobbiton-projects\rtsa" />
       <recent name="C:\Users\user\Documents\projects\alphabotics\rtsa" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build " type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="rtsa" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -108,5 +115,31 @@
       </map>
     </environment>
     <proxy>direct</proxy>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601549346371">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601549346371" />
+    <state x="669" y="147" key="#go_build_" timestamp="1601549373255">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="147" key="#go_build_/0.0.1920.1040@0.0.1920.1040" timestamp="1601549373255" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1601626383922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601626383922" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1601626383922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601626383922" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1601626383922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601626383922" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1601626383922">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601626383922" />
   </component>
 </project>
